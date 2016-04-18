@@ -53,20 +53,11 @@ class DeployPool extends \Pool
 
 class DeployWorker extends \Worker
 {
-    public static $app;
 
     public function run()
     {
-        require __DIR__ . '/../bootstrap/autoload.php';
-        self::$app =  require_once __DIR__ . '/../bootstrap/app.php';
-        /** @var \Illuminate\Foundation\Application $app */
-        $app = self::$app;
 
-        /** @var Illuminate\Contracts\Console\Kernel::class $kernel */
-        $kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
-        $kernel->bootstrap();
     }
-    public function getApp() { return self::$app; }
 
 }
 
